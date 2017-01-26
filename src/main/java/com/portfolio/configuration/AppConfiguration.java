@@ -1,0 +1,38 @@
+package com.portfolio.configuration;
+
+import org.apache.commons.logging.Log;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+import com.portfolio.model.UserCredentials;
+import com.portfolio.service.LoggerService;
+import com.portfolio.service.UserCredentialsService;
+import com.portfolio.service.UserCredentialsServiceImpl;
+import com.portfolio.serviceImpl.LoggerServiceImpl;
+
+@Configuration
+public class AppConfiguration {
+	
+	
+	@Bean
+	public LoggerService loggerService()
+	{
+		return new LoggerServiceImpl();
+	}
+	
+	
+
+	/*public UserCredentialsService userCredentialsService()
+	{
+		return new UserCredentialsServiceImpl();
+	} */
+	
+	
+
+	@Bean
+	public UserCredentials userCredentials()
+	{
+		return new UserCredentials();
+	}
+
+}
