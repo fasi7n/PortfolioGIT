@@ -1,15 +1,21 @@
 package com.portfolio.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
-import org.springframework.stereotype.Repository;
+import org.hibernate.validator.constraints.NotEmpty;
+
 
 @Entity
 public class UserCredentials {
 
 	@Id
+	@Column(name="EMAIL")
 	private String email_ID;
+	
+	@NotEmpty
+	@Column(name="PASSWORD", nullable=false)
 	private String password;
 	
 

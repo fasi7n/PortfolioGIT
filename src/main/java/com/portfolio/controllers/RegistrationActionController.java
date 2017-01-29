@@ -6,11 +6,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.portfolio.commons.SimpleSHADigest;
 import com.portfolio.model.LoginCredentials;
 import com.portfolio.model.UserCredentials;
+import com.portfolio.repositories.UserCredentialsRepository;
 import com.portfolio.service.UserCredentialsService;
 
 @Controller
@@ -25,6 +30,9 @@ public class RegistrationActionController {
 	
 	@Value("${email.taken.msg}")
 	private String emailTaken;
+	
+	@Autowired
+	private UserCredentialsRepository userCredentialsRepo;
 	
 	@PostMapping
 	public String registrationAction(@ModelAttribute LoginCredentials loginCredentials,  Model model)
@@ -50,5 +58,23 @@ public class RegistrationActionController {
 		
 	}
 	
+	
+	@RequestMapping("/verifyEmailTaken")
+	public @ResponseBody String verifyEmailTaken(@RequestParam("email") String email){
+		
+		System.out.println("Received email is   =========== " + email);
+		UserCredentials result = userCredentialsRepo.findOne(email);
+		
+		if(result!=null)
+		{
+		System.out.println("Verify email method reached and called  =========== " + result.getEmail_ID());
+		
+		return result.getEmail_ID();
+		}
+		
+		else return "allowedToCreate";
+		
+		
+	}
 
 }

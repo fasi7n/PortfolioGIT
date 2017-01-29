@@ -1,12 +1,7 @@
 package com.portfolio;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-import com.portfolio.service.LoggerService;
-
-
 
 
 @SpringBootApplication(scanBasePackageClasses = {DemoApplication.class, com.portfolio.configuration.AppConfiguration.class})
@@ -21,5 +16,7 @@ public class DemoApplication {
 				
 		SpringApplication.run(DemoApplication.class, args);
 		
-	}
+			
+		
+			}
 }

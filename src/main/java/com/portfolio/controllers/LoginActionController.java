@@ -33,7 +33,7 @@ public class LoginActionController {
 		
 		System.out.println("  -------------------- login adress  "+loginCredentials.getEmail_ID());
 		System.out.println("  -------------------- login pass   "+loginCredentials.getPassword());
-		System.out.println("uSERcRED oBJ VALUE IS NULL ----------- " + (userCredServObj==null));
+		System.out.println("User Credential VALUE IS NULL ----------- " + (userCredServObj==null));
 		
 		UserCredentials userCredentials = userCredServObj.getUserByEmail(loginCredentials.getEmail_ID());
 				

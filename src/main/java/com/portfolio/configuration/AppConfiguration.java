@@ -4,6 +4,7 @@ import org.apache.commons.logging.Log;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import com.portfolio.LoadDummyContent;
 import com.portfolio.model.UserCredentials;
 import com.portfolio.service.LoggerService;
 import com.portfolio.service.UserCredentialsService;
@@ -35,4 +36,11 @@ public class AppConfiguration {
 		return new UserCredentials();
 	}
 
+	
+	@Bean
+	public LoadDummyContent loadDummyContent()
+	{
+		return new LoadDummyContent();
+	}
+	
 }

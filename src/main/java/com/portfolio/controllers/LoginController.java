@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.portfolio.LoadDummyContent;
 import com.portfolio.model.LoginCredentials;
 
 
@@ -15,6 +16,9 @@ public class LoginController {
 	@Autowired
 	private LoginCredentials loginCredentials;
 	
+	@Autowired
+	private LoadDummyContent loadDummyContent;
+	
 
 @RequestMapping("/")
 public String login(Model model, @RequestParam(value="error", required=false) String error)
@@ -22,6 +26,7 @@ public String login(Model model, @RequestParam(value="error", required=false) St
 	{
 	
 	model.addAttribute("loginCredentials", loginCredentials);
+	loadDummyContent.loadDummyData();
 	
 	
 	
