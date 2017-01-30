@@ -15,9 +15,10 @@
   	margin-right: auto ;
 }
 
-#registerPage{
-	margin-top:20px
+#registerPage, #loginPage {
+	margin-top:40px
 }
+
 
 .registerMsg {
 	 padding: 5px 10px;

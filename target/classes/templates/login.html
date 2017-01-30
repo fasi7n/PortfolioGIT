@@ -58,6 +58,7 @@
         
         <div class="errorSpace"><strong> <p th:if="${error}" th:text="${error}"></p> </strong></div>  
         
+        <div class="registerSuccessSpace"><strong> <p th:if="${registerSuccess}" th:text="${registerSuccess}"></p> </strong></div> 
         
              <div class="form-group">
             	<div class="input-group">
@@ -115,7 +116,9 @@
             	<div class="input-group">
        			<strong>New User? Please Register</strong>
        			</div>
+       		
        		<input type="submit" class="form-control btn btn-info btn-block" value="Register"/>
+       		
         	</div>
         	
        

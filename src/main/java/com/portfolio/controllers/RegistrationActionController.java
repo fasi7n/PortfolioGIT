@@ -31,6 +31,9 @@ public class RegistrationActionController {
 	@Value("${email.taken.msg}")
 	private String emailTaken;
 	
+	@Value("${register.success.msg}")
+	private String registerSuccessMsg;
+	
 	@Autowired
 	private UserCredentialsRepository userCredentialsRepo;
 	
@@ -46,7 +49,8 @@ public class RegistrationActionController {
 		if(actionResult.equalsIgnoreCase("success"))
 		{
 			model.addAttribute("loginCredentials", userCredentials);
-			return "index";
+			model.addAttribute("registerSuccess", registerSuccessMsg);
+			return "login";
 		}
 		
 		else
