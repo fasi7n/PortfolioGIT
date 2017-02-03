@@ -3,6 +3,8 @@
 
 <head lang="en" th:replace="fragments/header :: header"> </head>
 
+<!-- end of header -->
+
 
 <body>
 <div id="indexPage">
@@ -11,11 +13,14 @@
  <div th:replace="fragments/navbar :: navbarMenu"></div>
 
 
- </div>  <!-- end of nav menu -->
+ </div>  <!-- end of nav bar -->
 
 
- <div class="app-container">
+ <div class="app-container container">
         <div layout:fragment="content">
+        
+         <div class="dashboardSpace"><strong> <p th:if="${dashSuccess}" th:text="${dashSuccess}"></p> </strong></div> 
+        
         </div>
     </div>
 
