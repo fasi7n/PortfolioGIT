@@ -19,7 +19,7 @@ public class UserDetails {
 	private String lastname;
 		
 	@Column(name="PHONE")
-	private String PHONE;
+	private String phone;
 	
 	
 
@@ -47,14 +47,15 @@ public class UserDetails {
 		this.lastname = lastname;
 	}
 
-	public String getPHONE() {
-		return PHONE;
+	public String getPhone() {
+		return phone;
 	}
 
-	public void setPHONE(String PHONE) {
-		this.PHONE = PHONE;
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 
+	
 	
 
 }

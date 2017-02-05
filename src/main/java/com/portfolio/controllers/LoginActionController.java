@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.portfolio.commons.SimpleSHADigest;
 import com.portfolio.model.LoginCredentials;
@@ -15,6 +16,7 @@ import com.portfolio.service.UserCredentialsService;
 
 @Controller
 @RequestMapping("/login")
+@SessionAttributes("loggedInUser")
 public class LoginActionController {
 	
 	
@@ -31,7 +33,7 @@ public class LoginActionController {
 	public String loginAction(@ModelAttribute LoginCredentials loginCredentials, Model model)
 	{
 		
-		System.out.println("  -------------------- login adress  "+loginCredentials.getEmail_ID());
+		System.out.println("  -------------------- login address  "+loginCredentials.getEmail_ID());
 		System.out.println("  -------------------- login pass   "+loginCredentials.getPassword());
 		System.out.println("User Credential VALUE IS NULL ----------- " + (userCredServObj==null));
 		
@@ -51,6 +53,12 @@ public class LoginActionController {
 					&& userCredentials.getPassword().equals(SimpleSHADigest.mySha1(loginCredentials.getPassword())))
 				{		
 					model.addAttribute("welcomeMessage", welcomeMessage);
+					
+					System.out.println("WHILE SETTING USER CREDENTIALS --- " + userCredentials.getEmail_ID());
+					UserCredentials loggedInUser = userCredentials;
+					System.out.println("WHILE SETTING LOGGED IN USER --- " + loggedInUser.getEmail_ID());
+					model.addAttribute("loggedInUser", loggedInUser);
+					
 					return "index";
 				}
 			

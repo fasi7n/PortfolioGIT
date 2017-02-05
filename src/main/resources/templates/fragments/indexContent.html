@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head></head>
+<body>
+<div th:fragment="dashContent" >
+
+<p> Your User Details Are As Follows</p>
+
+User Name:  <p th:text="${loggedInUser.email_ID}"></p>
+Password :  <p th:text="${loggedInUser.password}"></p>
+
+<div th:if="${userDetails}"> 
+First Name: <p th:text="${userDetails.firstname}"> </p>
+Last Name : <p th:text="${userDetails.lastname}"> </p>
+Phone No  : <p th:text="${userDetails.phone}"> </p>
+
+</div>
+
+<div th:if="${userDetails == null}">
+Caution: Your Details DO NOT exist!
+
+    <div id="addUserDetailsForm" >
+           <form class="form-horizontal" irole="form" th:action="@{/indexAction(actVal='addUserDetails')}" method="POST">
+            
+             <div class="form-group">
+            	<div class="input-group">
+       			<strong>Please Add Your Details:</strong>
+       			</div>
+       		
+       		<input type="submit" class="form-control btn btn-info btn-block" value="Add Details"/>
+       		
+        	</div>
+        	
+       
+        </form>
+        
+       </div>
+       
+       </div>
+
+</div>
+
+</body>
+
+
+</html>
+

@@ -19,7 +19,13 @@
  <div class="app-container container">
         <div layout:fragment="content">
         
-         <div class="dashboardSpace"><strong> <p th:if="${dashSuccess}" th:text="${dashSuccess}"></p> </strong></div> 
+         <div class="dashboardSpace"><strong> <p th:if="${dashSuccess}" th:text="${dashSuccess}"></p> </strong>
+         
+         <div th:if="${userInfo}"  th:replace="fragments/indexContent :: dashContent"></div>
+         </div> 
+        
+        
+        
         
         </div>
     </div>
