@@ -10,21 +10,22 @@ import org.springframework.stereotype.Controller;
 public class SimpleSHADigest {
 	
 	
-	public static String mySha1(String passToHash)
+	public static String mySha1(String dataToHash)
 	{
-		MessageDigest m = null;
+		MessageDigest md = null;
 		try
 		{
-			m = MessageDigest.getInstance("SHA1");
+			md = MessageDigest.getInstance("SHA1");
 		}
 		catch (NoSuchAlgorithmException e)
 		{		
 			e.printStackTrace();
 		}
-		byte[] data = passToHash.getBytes(); 
-		m.update(data,0,data.length);
-		BigInteger i = new BigInteger(1,m.digest());
-		return String.format("%1$040X", i);
+		
+		byte[] dataInBytes = dataToHash.getBytes(); 
+		md.update(dataInBytes, 0, dataInBytes.length);
+		BigInteger bi = new BigInteger(1, md.digest());
+		return String.format("%1$040X", bi);
 	}
 
 }
